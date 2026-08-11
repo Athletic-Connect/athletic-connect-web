@@ -65,11 +65,11 @@ export const features: Feature[] = [
     id: 'coach-toolbox',
     title: "Coach's toolbox",
     blurb:
-      'The day-to-day coaching tools in one place — roster and attendance, lineups, and quick notes on every player.',
+      'Keep every coach on the same page — shared program guidelines, plays, drills, and practice plans across your whole org.',
     detail:
-      'Take attendance, set your lineup, and jot private notes on a player’s progress, all from your phone. The tools a coach actually reaches for at every practice and game, in the same app that runs the rest of the program — so nothing lives in a separate notebook.',
+      'Give every coach your program’s playbook in one place: guidelines, sets and plays, a drill library, and practice plans they can pull from. New and volunteer coaches run practice the way your club wants it — so players get a consistent experience from one team and age group to the next.',
     homeGrid: true,
-    icon: '<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3a3 3 0 016 0v1M9 11h6M9 15h4"/>',
+    icon: '<path d="M4 4.5A2.5 2.5 0 016.5 2H20v15H6.5A2.5 2.5 0 004 19.5z"/><path d="M4 19.5A2.5 2.5 0 006.5 22H20M9 7h7M9 11h5"/>',
   },
   {
     id: 'families',
