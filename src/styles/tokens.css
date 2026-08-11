@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Athletic Connect — Brand Tokens
+   The single source of truth for color, type, and spacing.
+   Change a value here and it updates everywhere.
+   ========================================================================== */
+:root {
+  /* Brand */
+  --orange: #fc4204; /* primary — CTAs, accents, the "Connect" */
+  --orange-2: #ff7a3c; /* gradient partner / hover lift */
+  --orange-soft: #ffede6; /* tinted backgrounds, icon chips */
+  --ink: #101010; /* headlines, primary text */
+  --ink-2: #41454b; /* body text on light */
+  --ink-3: #54585e; /* secondary body text */
+
+  /* Surfaces */
+  --paper: #ffffff;
+  --wash: #faf8f7; /* warm off-white section background */
+  --muted: #6b6f76; /* labels, captions */
+  --line: #ececee; /* hairline borders */
+
+  /* Dark surfaces (consolidation strip, final CTA, footer) */
+  --night: #101010;
+  --night-2: #0a0a0a;
+  --night-line: #222;
+  --night-text: #c7c9ce;
+
+  /* Status pills in the product mock */
+  --ok-text: #2e6b3e;
+  --ok-bg: #e7f3ea;
+
+  /* Radii */
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 16px;
+
+  /* Typography */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  /* Layout */
+  --maxw: 1120px;
+  --gutter: 22px;
+
+  /* Elevation */
+  --shadow-btn: 0 6px 18px rgba(252, 66, 4, 0.28);
+  --shadow-btn-hover: 0 9px 22px rgba(252, 66, 4, 0.35);
+  --shadow-card: 0 16px 34px rgba(16, 16, 16, 0.08);
+  --shadow-mock: 0 24px 60px rgba(16, 16, 16, 0.14);
+}

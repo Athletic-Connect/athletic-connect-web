@@ -1,0 +1,98 @@
+---
+// "Stop duct-taping your program together" — the all-in-one strip.
+const replaced = [
+  'Registration app',
+  'Tournament software',
+  'Scheduling spreadsheet',
+  'Evaluation tool',
+  'Team store',
+  'Group texts & email',
+  'Payment plans by hand',
+  'Chasing dues',
+];
+---
+
+<section class="consol pad" id="platform">
+  <div class="wrap in">
+    <div>
+      <div class="eyebrow soft">One platform, not six tabs</div>
+      <h2>Stop duct-taping your program together.</h2>
+      <p>
+        Registration in one app, tournaments in another, a spreadsheet for
+        schedules, group texts for everything else. Athletic Connect replaces
+        the stack — one login, one source of truth, and no more copying data
+        between tools that don't talk to each other.
+      </p>
+      <div class="arrowline">
+        <span>Six tools + a spreadsheet</span>
+        <span class="o">→</span>
+        <span>One platform.</span>
+      </div>
+    </div>
+    <div class="chips">
+      {replaced.map((tool) => <div class="chip"><s>{tool}</s></div>)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .consol {
+    background: var(--ink);
+    color: #fff;
+  }
+  .in {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 40px;
+    align-items: center;
+  }
+  .in > * {
+    min-width: 0;
+  }
+  .consol h2 {
+    color: #fff;
+    margin-top: 10px;
+  }
+  .consol p {
+    color: var(--night-text);
+    margin-top: 12px;
+    font-size: 16px;
+  }
+  .eyebrow.soft {
+    color: var(--orange-2);
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .chip {
+    border: 1px solid #34363b;
+    border-radius: var(--r-sm);
+    padding: 12px 14px;
+    font-size: 13.5px;
+    color: #e7e8ea;
+    background: #171718;
+  }
+  .chip s {
+    color: #8a8d93;
+  }
+  .arrowline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+    font-weight: 800;
+    font-size: 15px;
+  }
+  .arrowline .o {
+    color: var(--orange);
+  }
+
+  @media (max-width: 820px) {
+    .in {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 26px;
+    }
+  }
+</style>

@@ -1,0 +1,96 @@
+---
+import { site } from '../data/site';
+const year = 2026;
+---
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div class="about">
+        <div class="fmark">Athletic <span class="o">Connect</span></div>
+        <p>
+          One platform for running clubs, tournaments, and teams. Less admin,
+          more game.
+        </p>
+      </div>
+      <div class="fcol">
+        <h4>Product</h4>
+        <a href="/features/">Features</a>
+        <a href="/#platform">All-in-one</a>
+        <a href="/pricing/">Pricing</a>
+      </div>
+      <div class="fcol">
+        <h4>Company</h4>
+        <a href="/#about">About</a>
+        <a href="/#demo">Request a demo</a>
+        <a href={`mailto:${site.email}`}>Contact</a>
+      </div>
+      <div class="fcol">
+        <h4>Get started</h4>
+        <a href="/#demo">Book a walkthrough</a>
+        <a href="/#demo">Early access</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© {year} Athletic Connect. All rights reserved.</span>
+      <span>Basketball-first · built alongside real clubs.</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: var(--night-2);
+    color: #9a9da2;
+    padding: 44px 0 34px;
+    font-size: 14px;
+  }
+  .cols {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 28px;
+  }
+  .about {
+    max-width: 300px;
+  }
+  .about p {
+    margin-top: 10px;
+  }
+  .fmark {
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+    color: #fff;
+  }
+  .fmark .o {
+    color: var(--orange);
+  }
+  footer a {
+    color: #b7bac0;
+  }
+  footer a:hover {
+    color: #fff;
+  }
+  .fcol h4 {
+    color: #fff;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+  .fcol a {
+    display: block;
+    padding: 4px 0;
+  }
+  .fbot {
+    border-top: 1px solid var(--night-line);
+    margin-top: 30px;
+    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 13px;
+  }
+</style>

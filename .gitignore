@@ -1,0 +1,23 @@
+# build output
+dist/
+.output/
+
+# dependencies
+node_modules/
+
+# astro generated types
+.astro/
+
+# env
+.env
+.env.production
+.env*.local
+
+# macOS / editor
+.DS_Store
+*.log
+.vscode/
+.idea/
+
+# netlify
+.netlify/

@@ -1,0 +1,61 @@
+---
+// Compact pricing teaser used on the home page.
+import { pricingPoints } from '../data/pricing';
+---
+
+<section class="pad price" id="pricing">
+  <div class="wrap center">
+    <div class="eyebrow">Fair, and it scales with you</div>
+    <h2>Pricing that grows as you do.</h2>
+    <p class="sec-sub">
+      Start for very little, turn on what you need, and pay mostly through the
+      payments you're already processing — not a big check up front.
+    </p>
+    <div class="card">
+      <div class="big">No setup wall · <span class="o">pay as you grow</span></div>
+      <ul>
+        {pricingPoints.map((p) => <li>{p}</li>)}
+      </ul>
+      <div><a href="/#demo" class="btn">Get your custom pricing</a></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .card {
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 30px;
+    max-width: 560px;
+    margin: 32px auto 0;
+    text-align: center;
+    background: var(--wash);
+  }
+  .big {
+    font-size: 30px;
+    font-weight: 800;
+    margin: 6px 0;
+  }
+  .big .o {
+    color: var(--orange);
+  }
+  ul {
+    list-style: none;
+    margin: 18px 0;
+    text-align: left;
+    display: inline-block;
+  }
+  li {
+    padding: 6px 0 6px 26px;
+    position: relative;
+    font-size: 15px;
+    color: var(--ink-2);
+  }
+  li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 800;
+  }
+</style>

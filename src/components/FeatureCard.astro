@@ -1,0 +1,62 @@
+---
+import type { Feature } from '../data/features';
+
+interface Props {
+  feature: Feature;
+  /** Use the longer copy (Features page) instead of the grid blurb. */
+  detailed?: boolean;
+}
+const { feature, detailed = false } = Astro.props;
+---
+
+<article class="fcard">
+  <div class="ficon">
+    <svg viewBox="0 0 24 24" aria-hidden="true" set:html={feature.icon} />
+  </div>
+  <h3>{feature.title}</h3>
+  <p>{detailed ? feature.detail : feature.blurb}</p>
+</article>
+
+<style>
+  .fcard {
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 22px;
+    background: #fff;
+    height: 100%;
+    transition:
+      transform 0.12s,
+      box-shadow 0.12s;
+  }
+  .fcard:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card);
+  }
+  .ficon {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    background: var(--orange-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .ficon svg {
+    width: 23px;
+    height: 23px;
+    stroke: var(--orange);
+    fill: none;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  h3 {
+    font-size: 17px;
+    margin-bottom: 7px;
+  }
+  p {
+    font-size: 14px;
+    color: var(--ink-3);
+  }
+</style>

@@ -1,0 +1,101 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+  heading?: string;
+  sub?: string;
+}
+const {
+  heading = 'Ready to get your evenings back?',
+  sub = "See Athletic Connect on your own program's setup. Leave your email and we'll reach out to set up a walkthrough.",
+} = Astro.props;
+---
+
+<section class="final pad" id="demo">
+  <div class="wrap center">
+    <h2>{heading}</h2>
+    <p>{sub}</p>
+    <!--
+      Netlify Forms: the `data-netlify` attribute wires this up automatically
+      once deployed to Netlify. The hidden `form-name` field is required.
+    -->
+    <form
+      class="capture"
+      name="demo-request"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="demo-request" />
+      <p class="hp">
+        <label>Leave this empty <input name="bot-field" /></label>
+      </p>
+      <label class="visually-hidden" for="email">Your email</label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        placeholder="you@yourclub.com"
+        required
+      />
+      <button class="btn" type="submit">Request a demo</button>
+    </form>
+    <div class="alt">
+      Or email us at <a href={`mailto:${site.email}`}>{site.email}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .final {
+    background: var(--ink);
+    color: #fff;
+    text-align: center;
+  }
+  .final h2 {
+    color: #fff;
+  }
+  .final p {
+    color: var(--night-text);
+    margin-top: 12px;
+    font-size: 17px;
+  }
+  .capture {
+    display: flex;
+    gap: 10px;
+    max-width: 440px;
+    margin: 26px auto 0;
+  }
+  .capture input[type='email'] {
+    flex: 1;
+    padding: 14px 16px;
+    border-radius: var(--r-sm);
+    border: 1px solid #3a3c41;
+    background: #1b1b1c;
+    color: #fff;
+    font-size: 15px;
+  }
+  .capture input::placeholder {
+    color: #8a8d93;
+  }
+  .hp {
+    display: none;
+  }
+  .alt {
+    margin-top: 14px;
+    font-size: 13px;
+    color: #8a8d93;
+  }
+  .alt a {
+    color: #b7bac0;
+  }
+  .alt a:hover {
+    color: #fff;
+  }
+
+  @media (max-width: 520px) {
+    .capture {
+      flex-direction: column;
+    }
+  }
+</style>
