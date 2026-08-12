@@ -30,7 +30,6 @@ export const modules: Module[] = [
   {
     id: 'leagues',
     title: 'Leagues',
-    tag: 'For league & rec operators',
     blurb:
       'Run recurring league play across a full season, with divisions, weekly schedules, and standings that update as scores come in.',
     detail:
