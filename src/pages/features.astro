@@ -6,8 +6,9 @@ import DemoCTA from '../components/DemoCTA.astro';
 import { features } from '../data/features';
 import { modules } from '../data/modules';
 
-// Tight single grid (the version we liked), with Leagues folded in from the
-// modules list. Ordered core-first, then competition, store, and families.
+// Tight single grid of six (the version we liked), with Leagues folded in from
+// the modules list. Team store and the family app are covered in the role
+// section below, so they are left off the grid.
 const f = (id: string) => features.find((x) => x.id === id)!;
 const m = (id: string) => modules.find((x) => x.id === id)!;
 const grid = [
@@ -17,14 +18,12 @@ const grid = [
   f('coach-toolbox'),
   f('tournaments'),
   m('leagues'),
-  m('store'),
-  f('families'),
 ];
 ---
 
 <Base
   title="Features"
-  description="Everything a program needs in one platform: registration and payments, scheduling, evaluations, the coach's toolbox, tournaments, leagues, a team store, and a view built for every role."
+  description="Everything a program needs in one platform: registration and payments, scheduling, evaluations, the coach's toolbox, tournaments, leagues, and a view built for every role."
   path="/features/"
 >
   <section class="hero pad">
