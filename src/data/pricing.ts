@@ -52,7 +52,6 @@ export const bundles: Bundle[] = [
       'Registration & online payments',
       'Scheduling',
       'Player evaluations',
-      "Coach's toolbox",
       'Reporting, communication, and the family app',
     ],
     cta: 'Start free',
@@ -60,13 +59,13 @@ export const bundles: Bundle[] = [
   },
   {
     name: 'Club',
-    who: 'A full program running teams, events, and gear.',
+    who: 'A full program running teams and events.',
     price: 'Pay as you grow',
-    priceNote: 'Everything in Starter, plus Tournaments and Team store.',
+    priceNote: "Everything in Starter, plus the coach's toolbox and Tournaments.",
     features: [
       'Everything in Starter',
+      "Coach's toolbox",
       'Host tournaments with pools, brackets, and courtside scoring',
-      'Team store for preorder gear',
       'Priority support',
     ],
     cta: 'Get custom pricing',
@@ -77,9 +76,10 @@ export const bundles: Bundle[] = [
     name: 'Elite',
     who: 'A program that wants the whole platform.',
     price: 'Best bundle',
-    priceNote: 'Everything in Club, plus Film, at the lowest combined price.',
+    priceNote: 'Everything in Club, plus Team store and Film.',
     features: [
       'Everything in Club',
+      'Team store for preorder gear',
       'Film and highlights',
       'The whole platform, at your best rate',
     ],
@@ -102,6 +102,11 @@ export const modules: Module[] = [
     priced: 'Priced per team',
   },
   {
+    name: "Coach's toolbox",
+    desc: "Your program's playbook: guidelines, plays, drills, and practice plans.",
+    priced: 'Included from Club',
+  },
+  {
     name: 'Leagues',
     desc: 'Season-long league play with divisions, schedules, and live standings.',
     priced: 'For league and rec operators',
@@ -109,7 +114,7 @@ export const modules: Module[] = [
   {
     name: 'Tournaments',
     desc: 'Host events with divisions, pools, brackets, and courtside scoring.',
-    priced: 'Per event, your first two are included',
+    priced: 'Included from Club',
   },
   {
     name: 'Evaluations',
@@ -119,7 +124,7 @@ export const modules: Module[] = [
   {
     name: 'Team store',
     desc: 'Preorder team gear, tied to your roster, with one clean supplier order at close.',
-    priced: 'One-time unlock',
+    priced: 'Included from Elite',
   },
   {
     name: 'Film',
