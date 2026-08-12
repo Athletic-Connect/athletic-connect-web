@@ -50,10 +50,10 @@ export const bundles: Bundle[] = [
     priceNote: 'The Programs module, then just a small fee on payments.',
     features: [
       'Registration & online payments',
-      'Scheduling & RSVP',
-      "Roster & the coach's toolbox",
+      'Scheduling',
       'Player evaluations',
-      'One home for families',
+      "Coach's toolbox",
+      'Reporting, communication, and the family app',
     ],
     cta: 'Start free',
     ctaHref: '/#demo',

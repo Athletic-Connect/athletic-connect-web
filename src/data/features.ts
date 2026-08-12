@@ -34,7 +34,7 @@ export const features: Feature[] = [
     blurb:
       'Practices, games, and events across every team. Set it once, and families always know exactly where to be.',
     detail:
-      'Set the calendar once and every family sees it. Players RSVP, and coaches see who is in before they leave the house. Tournament games you host flow straight onto your team schedules, with no double entry.',
+      'Set the calendar once and every family sees it. Players mark their availability, and coaches see who is in before they leave the house. Tournament games you host flow straight onto your team schedules, with no double entry.',
     icon: '<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/>',
   },
   {

@@ -96,7 +96,7 @@ export const roles: RoleView[] = [
   },
   {
     role: 'Families',
-    line: 'One simple app for schedules, payments, gear, and updates. Nothing they do not need.',
+    line: 'One simple app for schedules, payments, gear, and updates. Nothing they don’t need.',
   },
 ];
 
