@@ -1,13 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 import FeatureCard from '../components/FeatureCard.astro';
+import RoleViews from '../components/RoleViews.astro';
 import DemoCTA from '../components/DemoCTA.astro';
-import { features } from '../data/features';
+import { modules, platform } from '../data/modules';
 ---
 
 <Base
   title="Features"
-  description="Everything a program needs — registration and payments, scheduling, tournaments, player evaluations, a coach's toolbox, one home for families, and a built-in team store."
+  description="The modules a program picks (Programs, Leagues, Tournaments, Evaluations, Team store, Film) plus the platform every plan includes: role-based views, reporting, import and export, and communication."
   path="/features/"
 >
   <section class="hero pad">
@@ -16,9 +17,8 @@ import { features } from '../data/features';
       <h1>One platform. The whole season.</h1>
       <p class="lead">
         Athletic Connect replaces the stack of apps and spreadsheets clubs
-        cobble together — registration, scheduling, tournaments, evaluations,
-        the tools coaches use every day, and a team store, all connected in one
-        place.
+        cobble together. Choose the modules you need, and get the same solid
+        platform underneath every one of them.
       </p>
       <div class="cbtns">
         <a href="/#demo" class="btn">Request a demo</a>
@@ -27,17 +27,43 @@ import { features } from '../data/features';
     </div>
   </section>
 
-  <section class="pad grid-sec">
+  <section class="pad" id="modules">
     <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Modules</div>
+        <h2>Pick what you need. Add more as you grow.</h2>
+        <p class="sec-sub">
+          Each module is something you turn on when your program is ready for
+          it. Start with Programs and expand from there.
+        </p>
+      </div>
       <div class="fgrid">
-        {features.map((f) => <FeatureCard feature={f} detailed />)}
+        {modules.map((m) => <FeatureCard feature={m} detailed />)}
+      </div>
+    </div>
+  </section>
+
+  <RoleViews />
+
+  <section class="pad" id="platform">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">The platform</div>
+        <h2>Included with every plan.</h2>
+        <p class="sec-sub">
+          Whichever modules you pick, these come with them. They are part of the
+          platform, not add-ons you have to buy.
+        </p>
+      </div>
+      <div class="pgrid">
+        {platform.map((c) => <FeatureCard feature={c} />)}
       </div>
     </div>
   </section>
 
   <DemoCTA
     heading="Want to see it on your program?"
-    sub="We'll walk you through it on your own club's setup. Leave your email and we'll reach out."
+    sub="We will walk you through it on your own club's setup. Leave your email and we will reach out."
   />
 </Base>
 
@@ -64,22 +90,34 @@ import { features } from '../data/features';
     flex-wrap: wrap;
     justify-content: center;
   }
-  .grid-sec {
-    padding-top: 8px;
+  .head {
+    max-width: 640px;
+    margin-bottom: 40px;
   }
   .fgrid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
   }
+  .pgrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+  }
 
+  @media (max-width: 900px) {
+    .pgrid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
   @media (max-width: 820px) {
     .fgrid {
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     }
   }
   @media (max-width: 520px) {
-    .fgrid {
+    .fgrid,
+    .pgrid {
       grid-template-columns: minmax(0, 1fr);
     }
   }

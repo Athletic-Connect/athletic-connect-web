@@ -3,7 +3,7 @@ export const site = {
   name: 'Athletic Connect',
   tagline: 'Less admin. More game.',
   description:
-    'One platform for registration, scheduling, tournaments, evaluations, payments, and your team store — so you spend less time on admin and more on the game.',
+    'One platform for registration, scheduling, tournaments, evaluations, payments, and your team store, so you spend less time on admin and more on the game.',
   email: 'hello@athleticconnectapp.com',
   url: 'https://www.athleticconnectapp.com',
 };

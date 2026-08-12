@@ -1,0 +1,67 @@
+---
+import { roles } from '../data/modules';
+---
+
+<section class="pad roles">
+  <div class="wrap">
+    <div class="head center">
+      <div class="eyebrow">A view for every role</div>
+      <h2>Everyone sees what they need, and nothing they do not.</h2>
+      <p class="sec-sub">
+        Directors, coaches, staff, and families each get a view built for them.
+        That keeps the app simple for the people who just need the basics, and
+        keeps sensitive things in the right hands.
+      </p>
+    </div>
+    <div class="grid">
+      {
+        roles.map((r) => (
+          <div class="role">
+            <h3>{r.role}</h3>
+            <p>{r.line}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .roles {
+    background: var(--wash);
+  }
+  .head {
+    margin-bottom: 40px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .role {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 20px;
+  }
+  .role h3 {
+    font-size: 15.5px;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+  .role p {
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 520px) {
+    .grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

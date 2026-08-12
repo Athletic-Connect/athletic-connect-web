@@ -1,20 +1,33 @@
 ---
-import type { Feature } from '../data/features';
+// Renders a module / feature / capability card. Accepts anything with a
+// title, an icon (inner SVG markup), a blurb, and optionally a longer detail
+// and a small tag.
+interface CardItem {
+  title: string;
+  blurb: string;
+  detail?: string;
+  icon: string;
+  tag?: string;
+}
 
 interface Props {
-  feature: Feature;
-  /** Use the longer copy (Features page) instead of the grid blurb. */
+  feature: CardItem;
+  /** Use the longer copy (detail) instead of the grid blurb. */
   detailed?: boolean;
 }
 const { feature, detailed = false } = Astro.props;
+const body = detailed && feature.detail ? feature.detail : feature.blurb;
 ---
 
 <article class="fcard">
   <div class="ficon">
     <svg viewBox="0 0 24 24" aria-hidden="true" set:html={feature.icon} />
   </div>
-  <h3>{feature.title}</h3>
-  <p>{detailed ? feature.detail : feature.blurb}</p>
+  <div class="titlerow">
+    <h3>{feature.title}</h3>
+    {feature.tag && <span class="tag">{feature.tag}</span>}
+  </div>
+  <p>{body}</p>
 </article>
 
 <style>
@@ -51,9 +64,24 @@ const { feature, detailed = false } = Astro.props;
     stroke-linecap: round;
     stroke-linejoin: round;
   }
+  .titlerow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 7px;
+  }
   h3 {
     font-size: 17px;
-    margin-bottom: 7px;
+  }
+  .tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--orange);
+    background: var(--orange-soft);
+    padding: 3px 9px;
+    border-radius: 20px;
   }
   p {
     font-size: 14px;

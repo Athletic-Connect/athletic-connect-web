@@ -1,11 +1,11 @@
 /* ==========================================================================
-   Athletic Connect — Brand Tokens
+   Athletic Connect Brand Tokens
    The single source of truth for color, type, and spacing.
    Change a value here and it updates everywhere.
    ========================================================================== */
 :root {
   /* Brand */
-  --orange: #fc4204; /* primary — CTAs, accents, the "Connect" */
+  --orange: #fc4204; /* primary: CTAs, accents, the "Connect" */
   --orange-2: #ff7a3c; /* gradient partner / hover lift */
   --orange-soft: #ffede6; /* tinted backgrounds, icon chips */
   --ink: #101010; /* headlines, primary text */
