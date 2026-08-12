@@ -64,8 +64,8 @@ export const bundles: Bundle[] = [
     priceNote: "Everything in Starter, plus the coach's toolbox and Tournaments.",
     features: [
       'Everything in Starter',
-      "Coach's toolbox",
       'Host tournaments with pools, brackets, and courtside scoring',
+      "Coach's toolbox",
       'Priority support',
     ],
     cta: 'Get custom pricing',
