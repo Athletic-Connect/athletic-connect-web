@@ -156,7 +156,7 @@ export const morePlatform: Capability[] = [
   {
     title: 'Tryouts',
     blurb:
-      'Run tryouts start to finish. Tough decisions have never been easier. Custom questions place players into the right group, coaches score them on the spot, and assigning players to teams is seamless.',
+      'Run tryouts start to finish. Tough decisions have never been easier. Custom questions place players into the right group, and assigning players to teams is seamless.',
     icon: '<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3a3 3 0 016 0v1M9 12l2 2 4-4"/>',
   },
   {
