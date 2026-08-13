@@ -132,3 +132,55 @@ export const platform: Capability[] = [
     icon: '<rect x="3" y="4" width="13" height="10" rx="1.5"/><rect x="17" y="9" width="4" height="11" rx="1"/><path d="M6 20h6"/>',
   },
 ];
+
+/**
+ * "More of what's inside" — the Show more reveal on the Features page, in two
+ * groups: additional modules and platform. No pricing language here.
+ */
+export const moreModules: Capability[] = [
+  {
+    title: 'Team store',
+    blurb:
+      'Sell gear without a separate storefront. Sizes and numbers pull from your roster, and you get one clean order and a pickup list.',
+    icon: '<path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6L5 3H2M9 20a1 1 0 100-2 1 1 0 000 2zM18 20a1 1 0 100-2 1 1 0 000 2z"/>',
+  },
+  {
+    title: 'Film',
+    blurb:
+      'Upload game film and turn it into highlights for player development and recruiting, all in the same place as everything else.',
+    icon: '<path d="M4 5h16v14H4z"/><path d="M10 9l5 3-5 3z"/>',
+  },
+];
+
+export const morePlatform: Capability[] = [
+  {
+    title: 'Tryouts',
+    blurb:
+      'Run tryouts start to finish. Tough decisions have never been easier. Custom questions place players into the right group, coaches score them on the spot, and assigning players to teams is seamless.',
+    icon: '<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3a3 3 0 016 0v1M9 12l2 2 4-4"/>',
+  },
+  {
+    title: 'Locations',
+    blurb:
+      'Keep every venue in one place, so schedules and directions are handled for you. No more double bookings.',
+    icon: '<path d="M12 21s7-5.5 7-11a7 7 0 10-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+  },
+  {
+    title: 'Admin & permissions',
+    blurb:
+      'Give the right people the right access. Directors run the club, and everyone else sees just their part.',
+    icon: '<path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><circle cx="12" cy="11" r="1.6"/><path d="M12 12.6V15"/>',
+  },
+  {
+    title: 'Import & export',
+    blurb:
+      'Bring rosters, history, and schedules in from your old tools, and take your data out any time. Your data stays yours.',
+    icon: '<path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/>',
+  },
+  {
+    title: 'Notifications',
+    blurb:
+      'Automatic reminders reach families at the right time, so fewer people miss a game, a form, or a payment.',
+    icon: '<path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.5 21a2 2 0 01-3 0"/>',
+  },
+];
