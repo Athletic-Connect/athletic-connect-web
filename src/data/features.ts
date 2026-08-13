@@ -25,7 +25,7 @@ export const features: Feature[] = [
     blurb:
       'Sign families up in minutes and get paid automatically. Plans, discounts, and receipts are handled for you, so you stop chasing dues.',
     detail:
-      'Custom registration forms route players into the right program from how they answer, which is perfect for tryouts. Card payments, payment plans, discount codes, and receipts are handled for you, so dues stop being a chase.',
+      'Custom registration forms make it easy to sign up and automatically route players into the right program. Card payments, payment plans, discount codes, and receipts are handled for you, so dues stop being a chase.',
     icon: '<path d="M4 7h16M4 12h16M4 17h10"/>',
   },
   {
@@ -52,7 +52,7 @@ export const features: Feature[] = [
     blurb:
       'Give every player a clear picture of their growth, season over season. The report card families actually keep.',
     detail:
-      'Build a questionnaire from a library of skills, each with a plain-English definition, and rate on a simple 1 to 5 scale. Coaches fill it out in minutes, and families get a report card they keep season over season. Player and parent feedback on coaches closes the loop.',
+      "Coaches rate players on a simple 1 to 5 scale from a library of skills, each with a plain-English definition. Families get a report card they keep, so they can track a player's development over time, season over season. Player and parent feedback on coaches and programs closes the loop.",
     icon: '<path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7z"/><path d="M9 12l2 2 4-4"/>',
   },
   {

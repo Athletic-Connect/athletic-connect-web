@@ -46,15 +46,15 @@ export const bundles: Bundle[] = [
   {
     name: 'Starter',
     who: 'A single program getting online for the first time.',
-    price: 'Start free',
-    priceNote: 'The Programs module, then just a small fee on payments.',
+    price: 'Small upfront fee',
+    priceNote: 'A low one-time cost to get set up, then a small fee on payments.',
     features: [
       'Registration & online payments',
       'Scheduling',
       'Player evaluations',
       'Reporting, communication, and the family app',
     ],
-    cta: 'Start free',
+    cta: 'Get started',
     ctaHref: '/#demo',
   },
   {

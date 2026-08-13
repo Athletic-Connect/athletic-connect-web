@@ -83,19 +83,19 @@ export interface RoleView {
 export const roles: RoleView[] = [
   {
     role: 'Directors & admins',
-    line: 'Run the whole club: registrations, payments, rosters, and reports, all in one place.',
+    line: 'Run the whole club: registrations, payments, events, and reports, all in one place.',
   },
   {
     role: 'Coaches',
-    line: 'Just your team. Schedule, roster, availability, and the playbook, with no club finances to wade through.',
+    line: "Focus on your team. Schedule, roster, availability, and the playbook. The club's got your back.",
   },
   {
     role: 'Staff',
-    line: 'Scoped access to exactly the jobs they own, like check-in, scheduling, or the store, and nothing else.',
+    line: 'Scoped access to exactly the jobs they own, like admissions, scorekeeping, or stats, and nothing else.',
   },
   {
     role: 'Families',
-    line: 'One simple app for schedules, payments, gear, and updates. Nothing they don’t need.',
+    line: "One simple app for registration, schedules, scores, evaluations, and gear. You're always up to date.",
   },
 ];
 
