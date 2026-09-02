@@ -9,12 +9,15 @@ interface Props {
   description?: string;
   /** Path for canonical + og:url, e.g. "/features/" */
   path?: string;
+  /** Keep the page out of search results (e.g. the form confirmation page). */
+  noindex?: boolean;
 }
 
 const {
   title,
   description = site.description,
   path = '/',
+  noindex = false,
 } = Astro.props;
 
 const pageTitle = title
@@ -32,6 +35,7 @@ const ogImage = new URL('/brand/og-image.png', Astro.site ?? site.url).href;
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#fc4204" />

@@ -18,11 +18,14 @@ const {
     <!--
       Netlify Forms: the `data-netlify` attribute wires this up automatically
       once deployed to Netlify. The hidden `form-name` field is required.
+      `action` keeps the visitor on our own confirmation page instead of
+      Netlify's generic default success screen.
     -->
     <form
       class="capture"
       name="demo-request"
       method="POST"
+      action="/thanks/"
       data-netlify="true"
       netlify-honeypot="bot-field"
     >
@@ -48,7 +51,7 @@ const {
 
 <style>
   .final {
-    background: var(--ink);
+    background: var(--navy);
     color: #fff;
     text-align: center;
   }
@@ -56,7 +59,7 @@ const {
     color: #fff;
   }
   .final p {
-    color: var(--night-text);
+    color: var(--navy-text);
     margin-top: 12px;
     font-size: 17px;
   }
@@ -70,13 +73,13 @@ const {
     flex: 1;
     padding: 14px 16px;
     border-radius: var(--r-sm);
-    border: 1px solid #3a3c41;
-    background: #1b1b1c;
+    border: 1px solid var(--navy-line);
+    background: var(--navy-surface);
     color: #fff;
     font-size: 15px;
   }
   .capture input::placeholder {
-    color: #8a8d93;
+    color: var(--navy-muted);
   }
   .hp {
     display: none;
@@ -84,10 +87,10 @@ const {
   .alt {
     margin-top: 14px;
     font-size: 13px;
-    color: #8a8d93;
+    color: var(--navy-muted);
   }
   .alt a {
-    color: #b7bac0;
+    color: var(--navy-text);
   }
   .alt a:hover {
     color: #fff;
