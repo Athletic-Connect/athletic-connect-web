@@ -18,11 +18,15 @@
   --muted: #6b6f76; /* labels, captions */
   --line: #ececee; /* hairline borders */
 
-  /* Dark surfaces (consolidation strip, final CTA, footer) */
-  --night: #101010;
-  --night-2: #0a0a0a;
-  --night-line: #222;
-  --night-text: #c7c9ce;
+  /* Navy surfaces, matched to the product UI so the site and the app read as
+     one brand. --navy is the app's sidebar navy; --navy-surface is the app's
+     sidebar surface step. Replaces the old near-black sections. */
+  --navy: #16213a; /* app sidebar navy: dark sections, final CTA */
+  --navy-deep: #111a2e; /* footer, gradient partner */
+  --navy-surface: #1c2436; /* app sidebar surface: chips, form fields */
+  --navy-line: #2e3a54; /* hairlines on navy */
+  --navy-text: #c3cad9; /* body text on navy */
+  --navy-muted: #93a0b8; /* captions and secondary text on navy */
 
   /* Status pills in the product mock */
   --ok-text: #2e6b3e;
