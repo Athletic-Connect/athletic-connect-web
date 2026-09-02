@@ -1,0 +1,203 @@
+---
+/**
+ * Privacy Policy.
+ *
+ * DRAFT for presentation. Not legal advice, not reviewed by counsel.
+ *
+ * Confirm before relying on this:
+ *   - legal entity name, entity type, registered address
+ *   - payment processor(s), and confirmation we never receive full card data
+ *   - the sub-processor list in section 6 (hosting, email, monitoring, support)
+ *     and the regions they operate in
+ *   - the retention numbers in section 8 (backup window, post-termination
+ *     export window) against what the infrastructure actually does
+ *   - the 30-day rights response window in section 10 against real capacity
+ *   - the 72-hour breach notification commitment in section 9, which is a real
+ *     contractual promise once published
+ *   - whether any Organization or family is in the EU/UK (adds GDPR duties and
+ *     a transfer mechanism)
+ *   - which US state privacy laws apply and whether a "Your Privacy Choices"
+ *     link is required
+ *   - COPPA posture: we rely on the Organization to obtain verifiable parental
+ *     consent, which must also be stated in the Organization's agreement
+ */
+import LegalPage from '../components/LegalPage.astro';
+import { site } from '../data/site';
+---
+
+<LegalPage
+  title="Privacy Policy"
+  description="How Athletic Connect collects, uses, discloses, and protects personal information, including information about minors."
+  path="/privacy/"
+  heading="Privacy Policy"
+  intro="This policy explains what personal information Athletic Connect handles, on whose authority, and what we commit not to do with it."
+  updated="September 2, 2026"
+>
+  <h2>1. Scope and our role</h2>
+  <p>
+    Athletic Connect provides software to sports organizations. Our
+    responsibilities depend on which of two roles we are in, and the difference
+    determines who you contact to exercise your rights.
+  </p>
+  <ul>
+    <li>
+      <strong>Controller.</strong> For this website, demo requests, sales
+      contacts, and the administrator accounts we hold directly, we determine
+      the purposes and means of processing. This policy governs that
+      processing.
+    </li>
+    <li>
+      <strong>Service provider and processor.</strong> For everything an
+      organization enters into the platform, including rosters, registrations,
+      schedules, evaluations, payment records, and uploaded media, the
+      organization is the controller. We process it only on that organization's
+      documented instructions and for no independent purpose of our own.
+      Parents, guardians, participants, and staff should direct requests about
+      that data to their organization, which can act on it directly in the
+      platform. We support the organization in responding.
+    </li>
+  </ul>
+
+  <h2>2. Information we collect</h2>
+  <p><strong>Account and business contacts.</strong> Name, work email, phone number, organization, role, credentials, and authentication and audit logs.</p>
+  <p><strong>Participant and family records, entered by the organization.</strong> Participant name, date of birth, gender, program and team assignments, guardian names and contact details, emergency contacts, registration form responses, waivers and consents, attendance, coach evaluations, and photographs or video the organization uploads.</p>
+  <p><strong>Transaction records.</strong> Invoices, amounts, dates, status, payment method type, the last four digits of the instrument, refunds, payment plans, and coach payout records.</p>
+  <p><strong>Technical data.</strong> IP address, device and browser type, timestamps, pages and actions within the platform, and diagnostic logs.</p>
+  <p>
+    We do not collect government identification numbers, health records, or
+    precise geolocation. We do not require an organization to collect any
+    category of information it does not need.
+  </p>
+
+  <h2>3. Minors</h2>
+  <p>
+    Records about minors are integral to this platform. Our commitments are
+    specific:
+  </p>
+  <ul>
+    <li>We do not collect personal information directly from children. Records about a participant are created by the organization or by a parent or guardian, and platform accounts are held only by adults aged 18 or over.</li>
+    <li>We rely on the organization to obtain any verifiable parental consent required before entering a participant's information, and the organization warrants that it has done so.</li>
+    <li>We do not send marketing to minors, use minors' information for advertising or profiling, or make it available to third parties for their own purposes.</li>
+    <li>Access is limited by role. A coach sees the participants assigned to them, not the organization's full membership.</li>
+    <li>A parent or guardian may review, correct, or request deletion of their child's records through the organization. Where an organization does not respond, contact us and we will engage with the organization directly.</li>
+  </ul>
+
+  <h2>4. How we use information</h2>
+  <ul>
+    <li>To provide, maintain, and secure the platform and the features an organization has enabled</li>
+    <li>To process registrations, invoices, payments, refunds, and coach payouts</li>
+    <li>To send transactional communications, including receipts, schedule changes, and account and security notices</li>
+    <li>To provide support and investigate faults</li>
+    <li>To detect, prevent, and investigate fraud, abuse, and security incidents</li>
+    <li>To comply with legal, tax, and accounting obligations</li>
+    <li>To produce aggregated, de-identified statistics used to improve the platform. We do not attempt to re-identify this data and do not permit others to.</li>
+  </ul>
+  <p>
+    Where the law requires a legal basis, we rely on performance of a contract,
+    our legitimate interest in operating and securing the service, compliance
+    with legal obligations, or consent where consent is required.
+  </p>
+
+  <h2>5. We do not sell or share personal information</h2>
+  <p>
+    We do not sell personal information. We do not share it for cross-context
+    behavioral advertising. We do not use it to train third-party models. We
+    have not done so in the preceding twelve months. There is no advertising on
+    the platform.
+  </p>
+
+  <h2>6. Disclosure</h2>
+  <p>We disclose personal information only as follows:</p>
+  <ul>
+    <li><strong>Within the organization</strong>, to administrators, coaches, and staff according to their assigned role.</li>
+    <li><strong>To sub-processors</strong> engaged to run the service: cloud hosting, payment processing, transactional email and messaging, error monitoring, and customer support tooling. Each is bound by written terms limiting them to processing on our instructions, and is subject to confidentiality and security obligations no less protective than those in this policy.</li>
+    <li><strong>To comply with law</strong>, in response to a legally valid request. Where we are permitted to notify the affected organization, we will.</li>
+    <li><strong>In a corporate transaction</strong>, where the business or the relevant assets are acquired, subject to the acquirer honoring commitments no less protective than these.</li>
+  </ul>
+
+  <h2>7. Payments</h2>
+  <p>
+    Card and bank details are collected and stored by our third-party payment
+    processor under its own terms. We do not receive or store full payment
+    instrument numbers. We retain the transaction records an organization needs
+    for its own accounting.
+  </p>
+
+  <h2>8. Retention</h2>
+  <p>
+    We retain platform data for as long as the organization's account is active
+    and thereafter as the organization instructs. On termination, an
+    organization may export its data for 30 days, after which the account data
+    is scheduled for deletion. Deleted records may persist in encrypted backups
+    for up to 35 days before those backups expire. We retain transaction and
+    tax records for the period applicable law requires, and security logs for
+    up to 12 months.
+  </p>
+
+  <h2>9. Security</h2>
+  <p>
+    We encrypt data in transit and at rest, enforce role-based access control
+    and least-privilege access for our own personnel, log administrative
+    access, and separate each organization's data. Access to production data is
+    limited to staff who require it and is logged.
+  </p>
+  <p>
+    No system is perfectly secure. In the event of a personal data breach
+    affecting an organization's data, we will notify that organization without
+    undue delay and in any case within 72 hours of becoming aware, with the
+    information the organization needs to meet its own notification
+    obligations.
+  </p>
+
+  <h2>10. Your rights</h2>
+  <p>
+    Subject to your jurisdiction, you may have the right to access, correct,
+    delete, port, or restrict processing of your personal information, to object
+    to processing, and not to be discriminated against for exercising these
+    rights.
+  </p>
+  <p>
+    If the information sits in an organization's account, contact the
+    organization first. For information we hold as controller, write to
+    <a href={`mailto:${site.email}`}>{site.email}</a>. We will acknowledge within
+    10 days and respond substantively within 30 days, extending only where the
+    law permits and telling you if we do. We will verify your identity before
+    acting, and we will not charge you unless a request is manifestly unfounded
+    or excessive. You may use an authorized agent where the law allows.
+  </p>
+  <p>
+    You can unsubscribe from marketing email at any time. Transactional and
+    security messages about your account and your child's programs are not
+    marketing and will continue.
+  </p>
+
+  <h2>11. Cookies</h2>
+  <p>
+    We use cookies strictly necessary for authentication, session integrity, and
+    security, and a limited set of first-party analytics to understand feature
+    usage. We do not use advertising or cross-site tracking cookies. We honor
+    Global Privacy Control signals, though in any event we do not sell or share
+    personal information.
+  </p>
+
+  <h2>12. International transfers</h2>
+  <p>
+    We process and store data in the United States. Where we receive personal
+    information from another jurisdiction, we rely on an appropriate transfer
+    mechanism and apply this policy regardless of where the information
+    originated.
+  </p>
+
+  <h2>13. Changes</h2>
+  <p>
+    We will post any revision here and update the date above. For a material
+    change we will notify account administrators in advance of the effective
+    date.
+  </p>
+
+  <h2>14. Contact</h2>
+  <p>
+    Privacy questions, rights requests, and security reports:
+    <a href={`mailto:${site.email}`}>{site.email}</a>.
+  </p>
+</LegalPage>

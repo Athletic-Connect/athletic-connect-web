@@ -27,7 +27,7 @@ const year = 2026;
       </div>
       <div class="fcol">
         <h4>Company</h4>
-        <a href="/#about">About</a>
+        <a href="/about/">About</a>
         <a href="/#demo">Request a demo</a>
         <a href={`mailto:${site.email}`}>Contact</a>
       </div>
@@ -39,15 +39,19 @@ const year = 2026;
     </div>
     <div class="fbot">
       <span>© {year} Athletic Connect. All rights reserved.</span>
-      <span>Basketball-first · built alongside real clubs.</span>
+      <div class="legal">
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href={`mailto:${site.email}`}>Contact</a>
+      </div>
     </div>
   </div>
 </footer>
 
 <style>
   footer {
-    background: var(--night-2);
-    color: #9a9da2;
+    background: var(--navy-deep);
+    color: var(--navy-muted);
     padding: 44px 0 34px;
     font-size: 14px;
   }
@@ -69,7 +73,7 @@ const year = 2026;
     display: block;
   }
   footer a {
-    color: #b7bac0;
+    color: var(--navy-text);
   }
   footer a:hover {
     color: #fff;
@@ -85,8 +89,12 @@ const year = 2026;
     display: block;
     padding: 4px 0;
   }
+  .fbot .legal {
+    display: flex;
+    gap: 18px;
+  }
   .fbot {
-    border-top: 1px solid var(--night-line);
+    border-top: 1px solid var(--navy-line);
     margin-top: 30px;
     padding-top: 18px;
     display: flex;

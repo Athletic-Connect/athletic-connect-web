@@ -1,0 +1,69 @@
+---
+// Founder story. One paragraph, no names, no team section.
+//
+// Deliberate constraints: the critique lands on the software category, never on
+// any club, and nothing here implies a club has partnered with us, reviewed the
+// product, or given feedback. The experience is a founder's own.
+import Base from '../layouts/Base.astro';
+import DemoCTA from '../components/DemoCTA.astro';
+---
+
+<Base
+  title="About"
+  description="Athletic Connect exists because the software sold to youth sports is not built to run a program end to end."
+  path="/about/"
+>
+  <section class="ahead pad">
+    <div class="wrap center">
+      <div class="eyebrow">Our story</div>
+      <h1>We built the system we couldn't buy.</h1>
+    </div>
+  </section>
+
+  <section class="story">
+    <div class="wrap prose">
+      <p>
+        Athletic Connect comes out of one founder's years running a basketball
+        program, and the conclusion any director reaches after enough seasons:
+        the software sold to youth sports is not built to run a program end to
+        end. Registration is one product, scheduling is another, payments are a
+        third, and spreadsheets tie everything together. Copying and pasting,
+        reconciling across systems, and remembering where everything goes all
+        fall on the humans who make programs run. We decided to close the gap
+        rather than keep working around it. Athletic Connect is what it looks
+        like when one system covers the whole season, so the work goes back to
+        the sports and the players, and the paperwork stops being your evening.
+      </p>
+    </div>
+  </section>
+
+  <DemoCTA
+    heading="Want to see it?"
+    sub="Tell us how your program runs today and we'll show you what it looks like in one place."
+  />
+</Base>
+
+<style>
+  .ahead {
+    background:
+      radial-gradient(
+        1000px 460px at 50% -20%,
+        rgba(252, 66, 4, 0.1),
+        rgba(252, 66, 4, 0) 60%
+      ),
+      linear-gradient(180deg, #fff 0%, var(--wash) 100%);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+  .story {
+    padding: 52px 0 66px;
+  }
+  .prose {
+    max-width: 660px;
+  }
+  .prose p {
+    color: var(--ink-2);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+</style>

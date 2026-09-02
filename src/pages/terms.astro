@@ -1,0 +1,163 @@
+---
+/**
+ * Terms of Service.
+ *
+ * DRAFT, written from how the product actually works. It is NOT legal advice
+ * and has not been reviewed by counsel.
+ *
+ * Confirm before relying on this:
+ *   - legal entity name, entity type, and registered address
+ *   - governing law and venue (currently California as a placeholder)
+ *   - the real fee model once pricing is settled, and notice period for changes
+ *   - refund and chargeback handling, and who bears processor disputes
+ *   - the liability cap figure and whether insurance backs it
+ *   - whether we want arbitration and a class-action waiver (not included here)
+ *   - SLA / uptime commitments, if any, for larger organizations
+ *   - data export format and the window after termination
+ */
+import LegalPage from '../components/LegalPage.astro';
+import { site } from '../data/site';
+---
+
+<LegalPage
+  title="Terms of Service"
+  description="The terms that govern use of the Athletic Connect platform by sports organizations, their staff, and their families."
+  path="/terms/"
+  heading="Terms of Service"
+  intro="These terms cover how organizations and their families may use Athletic Connect, and what each of us is responsible for."
+  updated="September 2, 2026"
+>
+  <h2>1. Agreement</h2>
+  <p>
+    These terms are between Athletic Connect and the organization or individual
+    using the platform. By creating an account, signing an order for the
+    service, or using the platform, you agree to them. If you accept on behalf
+    of an organization, you confirm you are authorized to bind it.
+  </p>
+
+  <h2>2. Who may use the service</h2>
+  <p>
+    Account holders must be at least 18 years old. Participants who are minors
+    are added to the platform by their organization or by a parent or guardian,
+    and do not hold accounts in their own right. Organizations are responsible
+    for making sure the people they invite are entitled to the access they are
+    given.
+  </p>
+
+  <h2>3. Your organization's responsibilities</h2>
+  <ul>
+    <li>Keeping account credentials secure, and telling us promptly if they are compromised</li>
+    <li>The accuracy of the information entered into the platform</li>
+    <li>Having a lawful basis for the participant and family information it uploads, including any parent or guardian consent required</li>
+    <li>Setting appropriate roles and permissions for its staff and coaches</li>
+    <li>Its own communications with families, and the content it publishes through the platform</li>
+  </ul>
+
+  <h2>4. Fees and payment</h2>
+  <p>
+    Fees are set out in the order or plan you sign up for. Payments processed
+    through the platform run through a third-party payment processor and are
+    subject to that processor's terms. Processing fees may be passed on to
+    families at checkout or absorbed by the organization, at the organization's
+    election.
+  </p>
+  <p>
+    Registration fees, dues, refunds, and payment plans are set and administered
+    by the organization. We provide the tools. We are not a party to the
+    agreement between an organization and a family, and refund decisions rest
+    with the organization.
+  </p>
+
+  <h2>5. Your data</h2>
+  <p>
+    Your data stays yours. The information an organization puts into the
+    platform, including rosters, registrations, schedules, evaluations, payment
+    records, and uploaded media, belongs to that organization. You grant us the
+    rights necessary to host, process, transmit, back up, and display that
+    information in order to run the service for you, and for no other purpose.
+  </p>
+  <p>
+    We may use aggregated and de-identified information, which cannot be tied
+    back to any organization, family, or participant, to operate and improve the
+    platform.
+  </p>
+  <p>
+    On termination, we will make your data available for export for a reasonable
+    period, after which it may be deleted. Handling of personal information is
+    described in our <a href="/privacy/">Privacy Policy</a>.
+  </p>
+
+  <h2>6. Media and film</h2>
+  <p>
+    Organizations that upload photos or video are responsible for holding the
+    consents and releases required for the people who appear in them, including
+    minors. We store and display that media only as directed, and we do not use
+    it for marketing without separate written permission.
+  </p>
+
+  <h2>7. Acceptable use</h2>
+  <p>You agree not to:</p>
+  <ul>
+    <li>Use the platform to break the law or infringe anyone's rights</li>
+    <li>Upload malware, or attempt to breach, probe, or disrupt the service</li>
+    <li>Access data belonging to another organization</li>
+    <li>Reverse engineer the platform, or resell access without our written agreement</li>
+    <li>Harass, threaten, or endanger anyone, particularly a minor, through the platform</li>
+  </ul>
+  <p>
+    We may suspend access where we reasonably believe there is a security risk,
+    a legal problem, or serious misuse, and we will tell you why.
+  </p>
+
+  <h2>8. Availability</h2>
+  <p>
+    We work to keep the platform available and will give advance notice of
+    planned maintenance where we can. The service is provided as is, without
+    warranties of any kind, express or implied, including fitness for a
+    particular purpose. We do not warrant that the service will be uninterrupted
+    or error free.
+  </p>
+
+  <h2>9. Limitation of liability</h2>
+  <p>
+    To the maximum extent permitted by law, neither party is liable for
+    indirect, incidental, special, or consequential damages, or for lost profits
+    or lost data. Our total liability arising out of these terms is limited to
+    the amounts you paid us for the service in the twelve months before the
+    claim. Nothing here limits liability that cannot be limited by law.
+  </p>
+
+  <h2>10. Indemnity</h2>
+  <p>
+    You agree to indemnify us against claims arising from your content, your use
+    of the platform in breach of these terms, or your failure to obtain a
+    consent you were responsible for obtaining.
+  </p>
+
+  <h2>11. Term and termination</h2>
+  <p>
+    Either party may terminate as set out in the applicable order, or
+    immediately if the other party materially breaches these terms and does not
+    fix it within thirty days of notice. Fees already incurred remain payable.
+  </p>
+
+  <h2>12. Changes</h2>
+  <p>
+    We may update these terms. If a change is material, we will notify account
+    administrators before it takes effect. Continuing to use the platform after
+    that means the updated terms apply.
+  </p>
+
+  <h2>13. Governing law</h2>
+  <p>
+    These terms are governed by the laws of the State of California, without
+    regard to its conflict of laws rules, and the state and federal courts
+    located there have exclusive jurisdiction.
+  </p>
+
+  <h2>14. Contact</h2>
+  <p>
+    Questions about these terms can go to
+    <a href={`mailto:${site.email}`}>{site.email}</a>.
+  </p>
+</LegalPage>
