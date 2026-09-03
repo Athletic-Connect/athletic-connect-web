@@ -17,10 +17,22 @@ import DemoCTA from '../components/DemoCTA.astro';
   <Differentiators />
   <MobileBand
     eyebrow="One home for families"
-    heading="Parents get one login, not six emails."
-    body="Every child, every team, every invoice in one place, on the phone they already have. Families check the schedule, RSVP, and pay without calling you."
-    image="/product/family-mobile.png"
-    alt="The Athletic Connect family view on a phone, showing one account with four family members and a prompt to pay an open invoice."
+    heading="Your whole program. Just one tap away."
+    body="Give families one simple, easy-to-navigate app for everything they need. Register for a clinic, check practice and weekend schedules, read current and past evaluations, or grab a new shirt from the team store, all at the tap of a button."
+    frames={[
+      {
+        src: '/product/fam-1-schedule.png',
+        alt: "A family's schedule on a phone, listing upcoming practices and games with times, teams and locations.",
+      },
+      {
+        src: '/product/fam-2-classes.png',
+        alt: 'Booked classes on a phone, each with its time, venue and free-cancellation window.',
+      },
+      {
+        src: '/product/fam-3-family.png',
+        alt: 'The family account on a phone, showing every child on one login.',
+      },
+    ]}
   />
   <ValueBand />
   <PricingTeaser />

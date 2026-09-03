@@ -7,16 +7,23 @@
  * to "Example Club" and the family's street address is removed. Nothing here
  * claims a native app, since there is not one yet.
  */
+interface Frame {
+  src: string;
+  alt: string;
+}
 interface Props {
   eyebrow: string;
   heading: string;
   body: string;
-  image: string;
-  alt: string;
+  /** A single still. */
+  image?: string;
+  alt?: string;
+  /** Or several screens that cycle in the phone. First one shows first. */
+  frames?: Frame[];
   /** Put the phone on the left instead of the right. */
   flip?: boolean;
 }
-const { eyebrow, heading, body, image, alt, flip = false } = Astro.props;
+const { eyebrow, heading, body, image, alt, frames, flip = false } = Astro.props;
 ---
 
 <section class="mband pad">
@@ -27,7 +34,22 @@ const { eyebrow, heading, body, image, alt, flip = false } = Astro.props;
       <p>{body}</p>
     </div>
     <div class="shot">
-      <img src={image} alt={alt} width="458" height="780" loading="lazy" />
+      {
+        frames ? (
+          <div class="cycler">
+            <div class="frames">
+              {frames.map((f) => (
+                <img src={f.src} alt={f.alt} width="458" height="780" loading="lazy" />
+              ))}
+            </div>
+            <div class="dots" aria-hidden="true">
+              {frames.map(() => <i />)}
+            </div>
+          </div>
+        ) : (
+          <img src={image} alt={alt} width="458" height="780" loading="lazy" />
+        )
+      }
     </div>
   </div>
 </section>
@@ -71,6 +93,78 @@ const { eyebrow, heading, body, image, alt, flip = false } = Astro.props;
     border-radius: 26px;
     border: 1px solid var(--line);
     box-shadow: var(--shadow-mock);
+  }
+
+  /* Cycling phone: one screen is always visible, so the fades overlap rather
+     than both landing on zero between slots. */
+  .cycler {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .frames {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 458 / 780;
+  }
+  .frames img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: top center;
+    opacity: 0;
+    animation: framecycle 21s infinite;
+  }
+  /* negative delays start each frame already at the right point in the cycle */
+  .frames img:nth-child(1) { animation-delay: 0s; }
+  .frames img:nth-child(2) { animation-delay: -14s; }
+  .frames img:nth-child(3) { animation-delay: -7s; }
+
+  @keyframes framecycle {
+    0% { opacity: 1; }
+    31% { opacity: 1; }
+    35% { opacity: 0; }
+    96% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 18px;
+  }
+  .dots i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #d5d7dd;
+    animation: dotcycle 21s infinite;
+  }
+  .dots i:nth-child(1) { animation-delay: 0s; }
+  .dots i:nth-child(2) { animation-delay: -14s; }
+  .dots i:nth-child(3) { animation-delay: -7s; }
+
+  @keyframes dotcycle {
+    0% { background: var(--orange); }
+    31% { background: var(--orange); }
+    33% { background: #d5d7dd; }
+    98% { background: #d5d7dd; }
+    100% { background: var(--orange); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .frames img,
+    .dots i {
+      animation: none;
+    }
+    .frames img { opacity: 0; }
+    .frames img:nth-child(1) { opacity: 1; }
+    .dots i:nth-child(1) { background: var(--orange); }
   }
 
   @media (max-width: 820px) {
