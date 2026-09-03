@@ -223,22 +223,37 @@ const { eyebrow, heading, body, image, alt, frames, flip = false } = Astro.props
     );
 
     let startX: number | null = null;
+    let startY = 0;
+
+    const endDrag = () => {
+      startX = null;
+      strip.classList.remove('dragging');
+      play();
+    };
+
     strip.addEventListener('pointerdown', (e) => {
       startX = e.clientX;
+      startY = e.clientY;
       strip.classList.add('dragging');
       strip.setPointerCapture(e.pointerId);
       stop();
     });
-    const release = (e: PointerEvent) => {
+
+    strip.addEventListener('pointerup', (e) => {
       if (startX === null) return;
       const dx = e.clientX - startX;
-      startX = null;
-      strip.classList.remove('dragging');
-      if (Math.abs(dx) >= SWIPE) show(at + (dx < 0 ? 1 : -1));
-      play();
-    };
-    strip.addEventListener('pointerup', release);
-    strip.addEventListener('pointercancel', release);
+      const dy = e.clientY - startY;
+      // only count it when the gesture is actually sideways, otherwise a
+      // slightly diagonal page scroll drags the carousel with it
+      if (Math.abs(dx) >= SWIPE && Math.abs(dx) > Math.abs(dy)) {
+        show(at + (dx < 0 ? 1 : -1));
+      }
+      endDrag();
+    });
+
+    // the browser fires this when it takes the gesture over to scroll the
+    // page, so it must never be treated as a swipe
+    strip.addEventListener('pointercancel', endDrag);
 
     // do not keep animating a phone nobody is looking at
     if ('IntersectionObserver' in window) {
