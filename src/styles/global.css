@@ -93,9 +93,11 @@ h2 {
   cursor: pointer;
   border: 0;
 }
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-btn-hover);
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-btn-hover);
+  }
 }
 .btn.ghost {
   background: transparent;

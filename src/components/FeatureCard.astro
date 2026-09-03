@@ -41,9 +41,14 @@ const body = detailed && feature.detail ? feature.detail : feature.blurb;
       transform 0.12s,
       box-shadow 0.12s;
   }
-  .fcard:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-card);
+  /* Touch browsers latch :hover on whatever the finger passes over, so on a
+     phone this lift fires and unfires as you scroll: the cards jiggle. Gate it
+     on a real pointer. */
+  @media (hover: hover) and (pointer: fine) {
+    .fcard:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card);
+    }
   }
   .ficon {
     width: 44px;
