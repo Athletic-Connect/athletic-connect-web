@@ -3,6 +3,8 @@ import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import Consolidation from '../components/Consolidation.astro';
 import FeaturesHome from '../components/FeaturesHome.astro';
+import Differentiators from '../components/Differentiators.astro';
+import MobileBand from '../components/MobileBand.astro';
 import ValueBand from '../components/ValueBand.astro';
 import PricingTeaser from '../components/PricingTeaser.astro';
 import DemoCTA from '../components/DemoCTA.astro';
@@ -12,6 +14,14 @@ import DemoCTA from '../components/DemoCTA.astro';
   <Hero />
   <Consolidation />
   <FeaturesHome />
+  <Differentiators />
+  <MobileBand
+    eyebrow="One home for families"
+    heading="Parents get one login, not six emails."
+    body="Every child, every team, every invoice in one place, on the phone they already have. Families check the schedule, RSVP, and pay without calling you."
+    image="/product/family-mobile.png"
+    alt="The Athletic Connect family view on a phone, showing one account with four family members and a prompt to pay an open invoice."
+  />
   <ValueBand />
   <PricingTeaser />
   <DemoCTA />

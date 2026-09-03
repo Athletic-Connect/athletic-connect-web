@@ -1,0 +1,86 @@
+---
+/**
+ * Two-column band pairing copy with a real phone screenshot of the member
+ * (family) side of the product.
+ *
+ * Screenshots are captured from the live app and scrubbed: the club is renamed
+ * to "Example Club" and the family's street address is removed. Nothing here
+ * claims a native app, since there is not one yet.
+ */
+interface Props {
+  eyebrow: string;
+  heading: string;
+  body: string;
+  image: string;
+  alt: string;
+  /** Put the phone on the left instead of the right. */
+  flip?: boolean;
+}
+const { eyebrow, heading, body, image, alt, flip = false } = Astro.props;
+---
+
+<section class="mband pad">
+  <div class:list={['wrap in', { flip }]}>
+    <div class="copy">
+      <div class="eyebrow">{eyebrow}</div>
+      <h2>{heading}</h2>
+      <p>{body}</p>
+    </div>
+    <div class="shot">
+      <img src={image} alt={alt} width="458" height="780" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .mband {
+    background: var(--wash);
+  }
+  .in {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.72fr);
+    gap: 56px;
+    align-items: center;
+  }
+  .in.flip .copy {
+    order: 2;
+  }
+  .in.flip .shot {
+    order: 1;
+  }
+  .in > * {
+    min-width: 0;
+  }
+  h2 {
+    margin-top: 10px;
+  }
+  .copy p {
+    color: var(--ink-2);
+    font-size: 17px;
+    margin-top: 14px;
+    max-width: 460px;
+  }
+  .shot {
+    display: flex;
+    justify-content: center;
+  }
+  .shot img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 26px;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-mock);
+  }
+
+  @media (max-width: 820px) {
+    .in {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 34px;
+    }
+    .in.flip .copy,
+    .in.flip .shot {
+      order: initial;
+    }
+  }
+</style>

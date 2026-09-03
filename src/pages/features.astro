@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import FeatureCard from '../components/FeatureCard.astro';
 import MoreFeatures from '../components/MoreFeatures.astro';
 import RoleViews from '../components/RoleViews.astro';
+import MobileBand from '../components/MobileBand.astro';
 import DemoCTA from '../components/DemoCTA.astro';
 import { features } from '../data/features';
 import { modules } from '../data/modules';
@@ -52,6 +53,15 @@ const grid = [
   </section>
 
   <MoreFeatures />
+
+  <MobileBand
+    eyebrow="On the phone"
+    heading="Stay on top of the season, wherever you are."
+    body="Schedule, RSVPs, invoices, and payments from the phone in your pocket. One login for the whole family, every kid, every team."
+    image="/product/schedule-mobile.png"
+    alt="The Athletic Connect schedule on a phone, listing upcoming events with times, teams, locations and an RSVP button."
+    flip
+  />
 
   <RoleViews />
 

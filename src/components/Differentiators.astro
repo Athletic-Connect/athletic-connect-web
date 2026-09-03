@@ -1,0 +1,101 @@
+---
+/**
+ * The depth section: the two capabilities competitors are not offering.
+ *
+ * Deliberately not framed as "features" (the grid above already does breadth).
+ * These are retention arguments: evaluations are why families stay, the
+ * toolbox is why a program survives a coach leaving.
+ */
+const blocks = [
+  {
+    label: 'Evaluations',
+    title: 'A development record that follows the player.',
+    body: "Coaches assess against your program's standards, not a blank text box, so families get specific feedback instead of one-off side conversations. And because every season is scored the same way, you can track a player's growth season over season instead of guessing at it.",
+    image: '/product/evaluations.png',
+    width: 2240,
+    height: 820,
+    alt: "An Athletic Connect player evaluation awaiting admin approval, showing skills assessed, ratings from developing to strength, and the coach's written comments.",
+  },
+  {
+    label: "Coach's Toolbox",
+    title: "Your program's standards, in every coach's hands.",
+    body: "Guidelines, drills and sets live with the club, not on one coach's notepad. Coaches build practice plans from your templates and drop them straight onto the calendar, so a new coach gets up to speed faster and every practice runs to the same standard.",
+    image: '/product/toolbox.png',
+    width: 2240,
+    height: 699,
+    alt: "The Athletic Connect Sets and Plays library, listing offensive and defensive sets with court diagrams, recommended grades and tags.",
+  },
+];
+---
+
+<section class="depth pad" id="depth">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">What the others don't do</div>
+      <h2>Development you can measure. Coaching you can count on.</h2>
+    </div>
+
+    <div class="blocks">
+      {
+        blocks.map((b) => (
+          <article class="block">
+            <div class="copy">
+              <div class="label">{b.label}</div>
+              <h3>{b.title}</h3>
+              <p>{b.body}</p>
+            </div>
+            <img
+              src={b.image}
+              alt={b.alt}
+              width={b.width}
+              height={b.height}
+              loading="lazy"
+            />
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .depth {
+    background: var(--paper);
+  }
+  .blocks {
+    display: grid;
+    gap: 64px;
+    margin-top: 52px;
+  }
+  .copy {
+    max-width: 620px;
+  }
+  .label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+  .block h3 {
+    font-size: clamp(21px, 2.6vw, 27px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-weight: 800;
+  }
+  .block p {
+    color: var(--ink-2);
+    font-size: 16.5px;
+    margin-top: 12px;
+  }
+  .block img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 24px;
+    border-radius: var(--r-lg);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-mock);
+  }
+</style>
