@@ -76,6 +76,39 @@ const replaced = [
   }
   .chip s {
     color: var(--navy-muted);
+    position: relative;
+    text-decoration: none;
+  }
+  /* our own strike line, so it can draw itself as the chip is revealed */
+  .chip s::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 52%;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.42s cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+  .chip.rv-in s::after {
+    transform: scaleX(1);
+  }
+  /* no reveal script, or motion turned down: fall back to a plain strike */
+  .chip:not(.rv) s {
+    text-decoration: line-through;
+  }
+  .chip:not(.rv) s::after {
+    display: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .chip s {
+      text-decoration: line-through;
+    }
+    .chip s::after {
+      display: none;
+    }
   }
   .arrowline {
     display: flex;
