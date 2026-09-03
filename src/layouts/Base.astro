@@ -61,7 +61,6 @@ const ogImage = new URL('/brand/og-image.png', Astro.site ?? site.url).href;
         transition:
           opacity 0.55s cubic-bezier(0.2, 0.6, 0.2, 1),
           transform 0.55s cubic-bezier(0.2, 0.6, 0.2, 1);
-        will-change: opacity, transform;
       }
       .rv.rv-in {
         opacity: 1;
@@ -93,31 +92,28 @@ const ogImage = new URL('/brand/og-image.png', Astro.site ?? site.url).href;
         const sections = [...document.querySelectorAll('main > section')].slice(1);
         const targets: HTMLElement[] = [];
 
+        // One target per section. Cards used to animate individually with a
+        // stagger, which on a phone put a single column of them on delays of up
+        // to 300ms and left every card holding a composited transform: they
+        // read as jiggling while you scrolled.
         for (const section of sections) {
-          // stagger the children of a grid, otherwise reveal the block as one
-          const grid = section.querySelector<HTMLElement>(
-            '.fgrid, .chips, .blocks, .plans, .cards'
-          );
-          if (grid && grid.children.length > 1) {
-            [...grid.children].forEach((child, i) => {
-              const el = child as HTMLElement;
-              el.style.transitionDelay = `${Math.min(i, 6) * 60}ms`;
-              targets.push(el);
-            });
-            const head = section.querySelector<HTMLElement>(':scope > .wrap > .center, :scope > .wrap > div:first-child');
-            if (head && !head.contains(grid)) targets.push(head);
-          } else {
-            const wrap = section.querySelector<HTMLElement>(':scope > .wrap') ?? (section as HTMLElement);
-            targets.push(wrap);
-          }
+          const wrap = section.querySelector<HTMLElement>(':scope > .wrap') ?? (section as HTMLElement);
+          targets.push(wrap);
         }
 
         const io = new IntersectionObserver(
           (entries) => {
             for (const entry of entries) {
               if (!entry.isIntersecting) continue;
-              entry.target.classList.add('rv-in');
-              io.unobserve(entry.target);
+              const el = entry.target as HTMLElement;
+              el.classList.add('rv-in');
+              io.unobserve(el);
+              // let it go back to plain static rendering once it has landed
+              el.addEventListener(
+                'transitionend',
+                () => el.classList.remove('rv', 'rv-in'),
+                { once: true }
+              );
             }
           },
           { rootMargin: '0px 0px -12% 0px', threshold: 0.08 }
