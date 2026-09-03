@@ -52,7 +52,7 @@ export const features: Feature[] = [
     blurb:
       'A public club page you can actually keep current. Pick a template, add your photos and sponsors, point your own domain at it, and let your programs update themselves.',
     detail:
-      "Pick a template and colour, add a hero photo, write as many sections about your club as you like, and show your sponsors. Point your own domain at it. Your live program list publishes itself, so open a registration and it appears. Already have a site you like? Copy the widget code and embed the same live program list there instead.",
+      "Pick a template and color, add a hero photo, write as many sections about your club as you like, and show your sponsors. Point your own domain at it. Your live program list publishes itself, so open a registration and it appears. Already have a site you like? Copy the widget code and embed the same live program list there instead.",
     icon: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/>',
   },
   {
