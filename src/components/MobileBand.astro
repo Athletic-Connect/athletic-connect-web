@@ -36,14 +36,29 @@ const { eyebrow, heading, body, image, alt, frames, flip = false } = Astro.props
     <div class="shot">
       {
         frames ? (
-          <div class="cycler">
-            <div class="frames">
-              {frames.map((f) => (
-                <img src={f.src} alt={f.alt} width="458" height="780" loading="lazy" />
+          <div class="cycler" data-cycler>
+            <div class="frames" data-frames>
+              {frames.map((f, i) => (
+                <img
+                  src={f.src}
+                  alt={f.alt}
+                  width="458"
+                  height="780"
+                  class:list={[{ on: i === 0 }]}
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  draggable={false}
+                />
               ))}
             </div>
-            <div class="dots" aria-hidden="true">
-              {frames.map(() => <i />)}
+            <div class="dots">
+              {frames.map((_, i) => (
+                <button
+                  type="button"
+                  class:list={[{ on: i === 0 }]}
+                  aria-label={`Show screen ${i + 1} of ${frames.length}`}
+                  data-dot={i}
+                />
+              ))}
             </div>
           </div>
         ) : (
@@ -95,8 +110,9 @@ const { eyebrow, heading, body, image, alt, frames, flip = false } = Astro.props
     box-shadow: var(--shadow-mock);
   }
 
-  /* Cycling phone: one screen is always visible, so the fades overlap rather
-     than both landing on zero between slots. */
+  /* Cycling phone. State is driven by script so the screens can also be
+     swiped; the first frame carries .on from the server, so with no JS the
+     phone still shows a screen. */
   .cycler {
     display: flex;
     flex-direction: column;
@@ -108,6 +124,12 @@ const { eyebrow, heading, body, image, alt, frames, flip = false } = Astro.props
     width: 100%;
     max-width: 300px;
     aspect-ratio: 458 / 780;
+    /* let vertical scrolling through, capture horizontal for swipes */
+    touch-action: pan-y;
+    cursor: grab;
+  }
+  .frames.dragging {
+    cursor: grabbing;
   }
   .frames img {
     position: absolute;
@@ -118,53 +140,40 @@ const { eyebrow, heading, body, image, alt, frames, flip = false } = Astro.props
     object-fit: cover;
     object-position: top center;
     opacity: 0;
-    animation: framecycle 21s infinite;
+    transition: opacity 0.5s ease;
+    user-select: none;
+    -webkit-user-drag: none;
   }
-  /* negative delays start each frame already at the right point in the cycle */
-  .frames img:nth-child(1) { animation-delay: 0s; }
-  .frames img:nth-child(2) { animation-delay: -14s; }
-  .frames img:nth-child(3) { animation-delay: -7s; }
-
-  @keyframes framecycle {
-    0% { opacity: 1; }
-    31% { opacity: 1; }
-    35% { opacity: 0; }
-    96% { opacity: 0; }
-    100% { opacity: 1; }
+  .frames img.on {
+    opacity: 1;
   }
 
   .dots {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     margin-top: 18px;
   }
-  .dots i {
-    width: 7px;
-    height: 7px;
+  .dots button {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
     border-radius: 50%;
     background: #d5d7dd;
-    animation: dotcycle 21s infinite;
+    cursor: pointer;
+    transition:
+      background 0.3s ease,
+      transform 0.3s ease;
   }
-  .dots i:nth-child(1) { animation-delay: 0s; }
-  .dots i:nth-child(2) { animation-delay: -14s; }
-  .dots i:nth-child(3) { animation-delay: -7s; }
-
-  @keyframes dotcycle {
-    0% { background: var(--orange); }
-    31% { background: var(--orange); }
-    33% { background: #d5d7dd; }
-    98% { background: #d5d7dd; }
-    100% { background: var(--orange); }
+  .dots button.on {
+    background: var(--orange);
+    transform: scale(1.15);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .frames img,
-    .dots i {
-      animation: none;
+    .frames img {
+      transition: none;
     }
-    .frames img { opacity: 0; }
-    .frames img:nth-child(1) { opacity: 1; }
-    .dots i:nth-child(1) { background: var(--orange); }
   }
 
   @media (max-width: 820px) {
@@ -178,3 +187,67 @@ const { eyebrow, heading, body, image, alt, frames, flip = false } = Astro.props
     }
   }
 </style>
+
+<script>
+  // Phone screen cycler: auto-advances, and can be swiped or dotted through.
+  // Everything here is progressive enhancement, the first frame is already
+  // visible from the server.
+  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const HOLD = 7000;
+  const SWIPE = 40;
+
+  for (const root of document.querySelectorAll<HTMLElement>('[data-cycler]')) {
+    const strip = root.querySelector<HTMLElement>('[data-frames]');
+    const shots = [...root.querySelectorAll<HTMLImageElement>('[data-frames] img')];
+    const dots = [...root.querySelectorAll<HTMLButtonElement>('[data-dot]')];
+    if (!strip || shots.length < 2) continue;
+
+    let at = 0;
+    let timer: number | undefined;
+
+    const show = (next: number) => {
+      at = (next + shots.length) % shots.length;
+      shots.forEach((el, i) => el.classList.toggle('on', i === at));
+      dots.forEach((el, i) => el.classList.toggle('on', i === at));
+    };
+
+    const stop = () => { if (timer) window.clearInterval(timer); timer = undefined; };
+    const play = () => {
+      stop();
+      // motion turned down: no unattended movement, but swiping still works
+      if (!REDUCED) timer = window.setInterval(() => show(at + 1), HOLD);
+    };
+
+    dots.forEach((dot, i) =>
+      dot.addEventListener('click', () => { show(i); play(); })
+    );
+
+    let startX: number | null = null;
+    strip.addEventListener('pointerdown', (e) => {
+      startX = e.clientX;
+      strip.classList.add('dragging');
+      strip.setPointerCapture(e.pointerId);
+      stop();
+    });
+    const release = (e: PointerEvent) => {
+      if (startX === null) return;
+      const dx = e.clientX - startX;
+      startX = null;
+      strip.classList.remove('dragging');
+      if (Math.abs(dx) >= SWIPE) show(at + (dx < 0 ? 1 : -1));
+      play();
+    };
+    strip.addEventListener('pointerup', release);
+    strip.addEventListener('pointercancel', release);
+
+    // do not keep animating a phone nobody is looking at
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(
+        ([entry]) => (entry.isIntersecting ? play() : stop()),
+        { threshold: 0.2 }
+      ).observe(root);
+    } else {
+      play();
+    }
+  }
+</script>
