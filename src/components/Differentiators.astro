@@ -10,7 +10,7 @@ const blocks = [
   {
     label: 'Evaluations',
     title: 'A development record that follows the player.',
-    body: "Coaches assess against your program's standards, not a blank text box, so families get specific feedback instead of one-off side conversations. And because every season is scored the same way, you can track a player's growth season over season instead of guessing at it.",
+    body: "Clear, actionable feedback for your club and its families. Customizable evaluations highlight strengths, identify what to work on, and build a record that follows the player. Because every season is scored the same way, you can see real growth instead of guessing at it.",
     image: '/product/evaluations.png',
     width: 2240,
     height: 820,
@@ -19,11 +19,23 @@ const blocks = [
   {
     label: "Coach's Toolbox",
     title: "Your program's standards, in every coach's hands.",
-    body: "Guidelines, drills and sets live with the club, not on one coach's notepad. Coaches build practice plans from your templates and drop them straight onto the calendar, so a new coach gets up to speed faster and every practice runs to the same standard.",
-    image: '/product/toolbox.png',
-    width: 2240,
-    height: 699,
-    alt: "The Athletic Connect Sets and Plays library, listing offensive and defensive sets with court diagrams, recommended grades and tags.",
+    body: "Guidelines, drills and sets live with the club, not on one coach's notepad. Coaches build a practice plan straight from your drill bank and drop it onto the calendar, so a new coach gets up to speed faster and every practice runs to the same standard.",
+    pair: [
+      {
+        caption: 'Your drill bank',
+        image: '/product/toolbox-drills.png',
+        width: 1500,
+        height: 603,
+        alt: "The Athletic Connect drill bank, listing club drills with type, tags and court diagrams.",
+      },
+      {
+        caption: "Tuesday's practice plan",
+        image: '/product/toolbox-plan.png',
+        width: 1500,
+        height: 601,
+        alt: 'A practice plan built from those drills, timed block by block from warm up through the shell drill.',
+      },
+    ],
   },
 ];
 ---
@@ -44,13 +56,35 @@ const blocks = [
               <h3>{b.title}</h3>
               <p>{b.body}</p>
             </div>
-            <img
-              src={b.image}
-              alt={b.alt}
-              width={b.width}
-              height={b.height}
-              loading="lazy"
-            />
+            {
+              b.pair ? (
+                <div class="pair">
+                  {b.pair.map((shot, i) => (
+                    <>
+                      {i === 1 && <div class="arrow" aria-hidden="true">→</div>}
+                      <figure>
+                        <figcaption>{shot.caption}</figcaption>
+                        <img
+                          src={shot.image}
+                          alt={shot.alt}
+                          width={shot.width}
+                          height={shot.height}
+                          loading="lazy"
+                        />
+                      </figure>
+                    </>
+                  ))}
+                </div>
+              ) : (
+                <img
+                  src={b.image}
+                  alt={b.alt}
+                  width={b.width}
+                  height={b.height}
+                  loading="lazy"
+                />
+              )
+            }
           </article>
         ))
       }
@@ -89,6 +123,42 @@ const blocks = [
     font-size: 16.5px;
     margin-top: 12px;
   }
+  /* Always stacked: the flow reads top to bottom, the arrow always points the
+     way the eye travels, and each screenshot gets the full column width. */
+  .pair {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .pair figure {
+    width: 100%;
+  }
+  .pair figure {
+    margin: 0;
+    min-width: 0;
+  }
+  .pair figcaption {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .pair img {
+    margin-top: 0;
+  }
+  .arrow {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--orange);
+    line-height: 1;
+    transform: rotate(90deg);
+    padding: 6px 0;
+  }
+
   .block img {
     display: block;
     width: 100%;
