@@ -6,20 +6,17 @@ import RoleViews from '../components/RoleViews.astro';
 import MobileBand from '../components/MobileBand.astro';
 import DemoCTA from '../components/DemoCTA.astro';
 import { features } from '../data/features';
-import { modules } from '../data/modules';
 
-// Tight single grid of six (the version we liked), with Leagues folded in from
-// the modules list. Team store and the family app are covered in the role
-// section below, so they are left off the grid.
+// Tight single grid of six. Leagues sits under "Additional modules" instead;
+// Team store and the family app are covered in the role section below.
 const f = (id: string) => features.find((x) => x.id === id)!;
-const m = (id: string) => modules.find((x) => x.id === id)!;
 const grid = [
   f('registration'),
   f('scheduling'),
   f('evaluations'),
   f('coach-toolbox'),
   f('tournaments'),
-  m('leagues'),
+  f('website'),
 ];
 ---
 

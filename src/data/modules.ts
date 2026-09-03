@@ -139,6 +139,12 @@ export const platform: Capability[] = [
  */
 export const moreModules: Capability[] = [
   {
+    title: 'Leagues',
+    blurb:
+      'Season-long league play with divisions, weekly schedules, and standings that update as scores come in. Built for rec departments and house leagues, not just travel clubs.',
+    icon: '<path d="M4 5h16M4 10h16M4 15h16M4 20h9"/><circle cx="19" cy="20" r="1.6"/>',
+  },
+  {
     title: 'Team store',
     blurb:
       'Sell gear without a separate storefront. Sizes and numbers pull from your roster, and you get one clean order and a pickup list.',
